@@ -27,64 +27,45 @@ app.listen(PORT, function() {
   });
 
 // app data
-var reservations = [
-{
-    reservationId: "1",
-    name: "Us",
-    phoneNumber: "867-5309",
-    email: "trabes@gmail.com",
-    uniqueId: "trabes"
-},
-{
-    reservationId: "2",
-    name: "Them",
-    phoneNumber: "867-5309",
-    email: "trabes@gmail.com",
-    uniqueId: "trabes"
-},
-{
-    reservationId: "3",
-    name: "Those",
-    phoneNumber: "867-5309",
-    email: "trabes@gmail.com",
-    uniqueId: "trabes"
-},
-{
-    reservationId: "4",
-    name: "They",
-    phoneNumber: "867-5309",
-    email: "trabes@gmail.com",
-    uniqueId: "trabes"
-},
-{
-    reservationId: "5",
-    name: "Dufrane",
-    phoneNumber: "867-5309",
-    email: "trabes@gmail.com",
-    uniqueId: "trabes"
-},
-{
-    reservationId: "6",
-    name: "Redding",
-    phoneNumber: "867-5309",
-    email: "trabes@gmail.com",
-    uniqueId: "trabes"
-}
-];
+// var reservations = [
+//     {"reservationId":"1","name":"Us","phoneNumber":"867-5309","email":"trabes@gmail.com","uniqueId":"trabes"},
+    
+//     {"reservationId":"2","name":"Them","phoneNumber":"867-5309","email":"trabes@gmail.com","uniqueId":"trabes"},
+    
+//     {"reservationId":"3","name":"Those","phoneNumber":"867-5309","email":"trabes@gmail.com","uniqueId":"trabes"},
+    
+//     {"reservationId":"4","name":"They","phoneNumber":"867-5309","email":"trabes@gmail.com","uniqueId":"trabes"},
+    
+//     {"reservationId":"5","name":"Dufrane","phoneNumber":"867-5309","email":"trabes@gmail.com","uniqueId":"trabes"},
 
-var currentlySeated = [];
+//     {"reservationId":"6","name":"dahlen","phoneNumber":"867-5309","email":"trabes@gmail.com","uniqueId":"trabes"},
+
+//     {"reservationId":"7","name":"riley","phoneNumber":"867-5309","email":"trabes@gmail.com","uniqueId":"trabes"}
+
+// ];
+
+var acceptedReservations = [];
 var waitList = [];
 
 // Get and Post Functions
 // get the first 5 for reservations
-app.get("/api/:reserve?", function(req, res) {
-    currentlySeated = req.params.reservations;
-      for (var i = 0; i < 4; i++) {
-            currentlySeated.push(reservations[i]);
+app.get("/api/reservations", function(req, res) {
+    // currentlySeated = req.params.reservations;
+      for (var i = 0; i < 5; i++) {
+            acceptedReservations.push(reservations[i]);
         }
-    return res.json(currentlySeated);
+    return res.json(acceptedReservations);
     
   });
-  console.log(currentlySeated);
-// create new reservation - takes in JSON input
+
+  // anything over 5 goes on the waitlist...
+app.get("/api/reservations", function(req, res) {
+      for (var j = 5; j > 4; j++) {
+            waitList.push(reservations[j]);
+        }
+    return res.json(waitList);
+    
+  });
+
+
 
