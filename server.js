@@ -11,13 +11,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // server routes
-app.get("/", function(req, res) {
+app.get("home", function(req, res) {
     res.sendFile(path.join(__dirname, "public/home.html"));
   });
-app.get("/", function(req, res) {
+app.get("tables", function(req, res) {
     res.sendFile(path.join(__dirname, "public/tables.html"));
   });
-app.get("/", function(req, res) {
+app.get("reserve", function(req, res) {
     res.sendFile(path.join(__dirname, "public/reserve.html"));
   });
 
