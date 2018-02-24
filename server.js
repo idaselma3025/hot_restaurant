@@ -12,13 +12,13 @@ app.use(bodyParser.json());
 
 // server routes
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname, "public/home.html"));
   });
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "tables.html"));
+    res.sendFile(path.join(__dirname, "public/tables.html"));
   });
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "reserve.html"));
+    res.sendFile(path.join(__dirname, "public/reserve.html"));
   });
 
 // Server Start
@@ -77,10 +77,14 @@ var waitList = [];
 
 // Get and Post Functions
 // get the first 5 for reservations
-app.get("/api/:reservations?", function(req, res) {
+app.get("/api/:reserve?", function(req, res) {
     currentlySeated = req.params.reservations;
       for (var i = 0; i < 4; i++) {
-            reservations[i].push(currentlySeated);
+            currentlySeated.push(reservations[i]);
         }
     return res.json(currentlySeated);
+    
   });
+  console.log(currentlySeated);
+// create new reservation - takes in JSON input
+
