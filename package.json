@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/idaselma3025/hot_restaurant/issues"
   },
-  "homepage": "https://github.com/idaselma3025/hot_restaurant#readme"
+  "homepage": "https://github.com/idaselma3025/hot_restaurant#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "path": "^0.12.7"
+  }
 }
