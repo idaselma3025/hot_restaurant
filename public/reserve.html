@@ -44,11 +44,47 @@
 		  	<input type="reserve-email" class="form-control" id="reserve-email" placeholder="Email">
 		  </div>
 		  <div class="form-group">
-		    <label for="reserve-unqique-id">Unique ID</label>
+		    <label for="reserve-unique-id">Unique ID</label>
 		    <input type="text" class="form-control" id="reserve-unique-id" placeholder="Unique ID">
 		  </div>
-		  <button type="submit" class="btn btn-primary submit">Submit</button>
+		  <button type="submit" class="btn btn-primary submit" id="submit">Submit</button>
 		</form>
+
+
+		<script type="text/javascript">
+			$("#submit").on("click", function(event){
+				event.preventDefault();
+
+				var name = $("#reserve-name").val().trim();
+				var phone = $("#reserve-phone").val().trim();
+				var email = $("#reserve-email").val().trim();
+				var uniqueId = $("#reserve-unique-id").val().trim();
+
+				var reservationInfo = {
+					name: name,
+					phone: phone,
+					email: email,
+					uniqueId: uniqueId
+				};
+				$.post("tables", reservationInfo,
+					function(data){
+						if(data){
+							alert("Table reserved.");
+						}
+
+						else{
+							alert("Table not confirmed. Please try again.");
+						}
+
+						$("#reserve-name").val("");
+						$("#reserve-phone").val("");
+						$("#reserve-email").val("");
+						$("#reserve-unique-id").val("");
+
+					});
+			});
+
+		</script>
 		
 	</div>
     <footer class="footer">

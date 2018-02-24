@@ -18,11 +18,12 @@
       <div class="jumbotron">
         <h1 class="display-4">Hot Restaurants</h1>    
           <hr class="my-4">
-          <h3>Make your reservation</h3>
+          <h3>Current Reservations and Waiting List</h3>
           <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">View Tables</a>
-            <button type="button" class="btn btn-default btn-lg" href="#"></button>
-            <span class="glyphicon glyphicon-home"></span>
+            <a class="btn btn-primary btn-lg" href="reserve.html" role="button">Make Reservation</a>
+            <a class="btn btn-primary btn-lg" href="home.html" role="button">Home Page</a>
+<!--             <button type="button" class="btn btn-default btn-lg" href="#">Home</button>
+            <span class="glyphicon glyphicon-home"></span> -->
           </p>
       </div>
     <div class="row">
@@ -35,6 +36,25 @@
           <!-- Panel Heading for the retrieved articles box -->
           <div class="panel-heading">
             <h3 class="panel-title"><strong><i class="fa fa-table"></i>Current Reservations</strong></h3>
+          </div>
+
+          <!-- This main panel will hold each of the resulting articles -->
+          <div class="panel-body" id="well-section">
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <div class="row">
+      <div class="col-sm-12">
+        <br>
+
+        <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
+        <div class="panel panel-primary">
+
+          <!-- Panel Heading for the retrieved articles box -->
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong><i class="fa fa-table"></i>Wait List</strong></h3>
           </div>
 
           <!-- This main panel will hold each of the resulting articles -->
