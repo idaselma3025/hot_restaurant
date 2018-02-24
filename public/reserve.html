@@ -66,9 +66,22 @@
 					email: email,
 					uniqueId: uniqueId
 				};
-				$.post("")
-				// console.log(reservationInfo);
+				$.post("tables", reservationInfo,
+					function(data){
+						if(data){
+							alert("Table reserved.");
+						}
 
+						else{
+							alert("Table not confirmed. Please try again.");
+						}
+
+						$("#reserve-name").val("");
+						$("#reserve-phone").val("");
+						$("#reserve-email").val("");
+						$("#reserve-unique-id").val("");
+
+					});
 			});
 
 		</script>
